@@ -1,0 +1,28 @@
+/*Folha de estilos para dispositivos móveis*/
+
+@media (max-width: 768px) {
+    
+    /* Esconde as setas de navegação que não são necessárias no mobile */
+    .carousel-prev, 
+    .carousel-next {
+        display: none;
+    }
+
+    /* Ajusta o wrapper principal */
+    .carousel-wrapper {
+        gap: 0; 
+        padding: 0 1rem;
+    }
+
+    /* Deixa a altura do contêiner e dos cards ser automática */
+    .carousel-container,
+    .cartao-imovel,
+    .cartao-beneficio {
+        height: auto; 
+    }
+
+    /*Ajusta a altura da imagem do card de imóvel para mobile */
+    .cartao-imovel__imagem {
+        height: 200px; 
+    }
+}
