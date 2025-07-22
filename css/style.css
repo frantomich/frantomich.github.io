@@ -296,20 +296,6 @@ body.loading {
     display: block;
 }
 
-.secao-sobre h2.titulo-secao-sobre {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto 0px auto;
-    text-align: left;
-    color: var(--cor-primaria-clara);
-    font-family: var(--fonte-familia);
-    font-size: var(--fonte-t2);
-    font-style: normal;
-    font-weight: var(--peso-bold);
-    line-height: normal;
-    z-index: 0;
-}
-
 .secao-sobre-conteudo {
     display: flex;
     flex-direction: row;
@@ -331,7 +317,10 @@ body.loading {
     font-size: 16px;
     line-height: 1.6;
     text-align: left;
-    gap: 20px;
+}
+
+.secao-sobre-lista li {
+    margin-bottom: 10px;
 }
 
 .secao-sobre-lista li::marker {
