@@ -2,9 +2,51 @@
  * Contém os estilos de layout para cada seção da página e as media queries.
  */
 
+/* -------------------------------- Loader --------------------------------- */
+
+/* Previne que a página seja rolada enquanto o loader estiver ativo: */
+body.loading {
+    overflow: hidden;
+}
+
+/* Estilo do container do loader: */
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--cor-fundo);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.7s, visibility 0.7s; /*Efeito de fade-out */
+}
+
+/* Esconde o loader via (ativado via JS): */
+#loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Estilo do spinner: */
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid var(--cor-fundo-cards);
+    border-top: 5px solid var(--cor-primaria-clara);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* Animação de rotação: */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
 
 /* ----------------------- Seção do Hero ------------------------ */
-
 
 .secao-hero {
     display: flex;
@@ -84,7 +126,6 @@
 /* --- Cartão de Benefício --- */
 .cartao-beneficio {
     width: 100%;     
-    /* max-width: 320px; */
     height: 360px;
     align-items: center;
     justify-content: flex-start; 
@@ -157,8 +198,7 @@
 
 /* --- Cartão de Imóvel --- */
 .cartao-imovel {
-    width: 100%;       
-    /* max-width: 395px;    */
+    width: 100%;
     height: 450px; 
     border: none;
     box-sizing: content-box;
@@ -295,7 +335,7 @@
 }
 
 .secao-sobre-lista li::marker {
-    color: #434A97;
+    color: var(--cor-primaria-clara);
 }
 
 .secao-sobre-imagem-container {
@@ -330,91 +370,6 @@
 
 .secao-sobre-curvas {
     display: none;
-}
-
-
-/* === RESPONSIVIDADE PARA A SEÇÃO SOBRE === */
-
-@media (max-width: 992px) {
-    .secao-sobre.container {
-        padding: 40px 40px;
-    }
-
-    .secao-sobre h2.titulo-secao-sobre {
-        text-align: center;
-        font-size: 2.2em;
-        max-width: 100%;
-        margin-left: 0;
-        margin-right: 0;
-        margin-bottom: 25px;
-    }
-
-    .secao-sobre-conteudo {
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 30px;
-        max-width: 100%;
-        margin-left: 0;
-        margin-right: 0;
-    }
-
-    .secao-sobre-lista {
-    flex: 1 1 42%; 
-    max-width: 620px; /* Ajuste para o limite do texto */
-    list-style: disc;
-    padding-left: 20px;
-    color: #1f2937;
-    font-size: 16px;
-    line-height: 1.6;
-    text-align: left;
-    gap: 20px;
-    }
-    
-    .secao-sobre-imagem-container {
-    flex: 0 0 42%; 
-    max-width: 580px; 
-    min-width: 300px;
-    text-align: right;
-    }
-}
-
-@media (max-width: 768px) {
-    .secao-sobre.container {
-        padding: 30px 25px;
-    }
-
-    .secao-sobre h2.titulo-secao-sobre {
-        font-size: 1.6em;
-        margin-bottom: 20px;
-    }
-
-    .secao-sobre-lista {
-        padding-left: 15px;
-        font-size: 0.95em;
-    }
-
-    .secao-sobre-imagem-container {
-        width: 90%;
-        max-width: 300px;
-    }
-}
-
-@media (max-width: 480px) {
-    .secao-sobre.container {
-        padding: 20px 15px;
-    }
-    .secao-sobre h2.titulo-secao-sobre {
-        font-size: 1.4em;
-        margin-bottom: 15px
-    }
-    .secao-sobre-lista {
-        font-size: 0.9em;
-        padding-left: 10px;
-    }
-    .secao-sobre-imagem-container {
-        width: 95%;
-    }
 }
 
 /* ----------------------- Seção de Depoimentos ------------------------ */
@@ -486,7 +441,7 @@
 }
 
 
-/* --- Seção Contato --- */
+/* ------------------- Seção Contato ------------------- */
 
 .secao-contato {
     padding: 4rem;
@@ -597,26 +552,7 @@
     margin-top: 10px;
 }
 
-/* === RESPONSIVIDADE PARA A SEÇÃO DE CONTATO === */
-@media (max-width: 992px) {
-    .cartao-contato__conteudo {
-        flex-direction: column; 
-        gap: 30px;
-        padding: 30px;
-    }
-}
-
-@media (max-width: 768px) {
-    .formulario-linha {
-        flex-direction: column; 
-        gap: 15px;
-    }
-    .cartao-contato__conteudo {
-        padding: 20px;
-    }
-}
-
-/* --- Rodapé --- */
+/* ------------------- Rodapé ------------------- */
 .rodape {
   background: var(--gradiente-primario);
   color: var(--cor-texto-claro);
@@ -654,24 +590,6 @@
 .rodape__redes-sociais img { width: 44px; height: 44px; }
 .rodape__copyright { font-size: var(--fonte-corpo); font-weight: var(--peso-medio); }
 
-
-/* === RESPONSIVIDADE === */
-
-/* Tablet (até 992px) */
-@media (max-width: 992px) {
-  .secao-sobre .container { flex-direction: column; }
-  .cartao-contato { flex-direction: column; }
-  .cartao-contato__mapa, .cartao-contato__formulario-wrapper { border-radius: 8px; }
-  .secao-sobre .titulo-secao { text-align: center; }
-}
-
-/* Mobile (até 768px) */
-@media (max-width: 768px) {
-  .container { padding: 40px 15px; }
-  .secao-hero { min-height: auto; padding: 60px 20px; }
-  .secao-hero__barra-topo { padding: 20px 20px; justify-content: center;} 
-  .cartao-beneficio, .cartao-imovel { min-width: 300px; }
-}
 .secao-hero__titulo .titulo-separador {
     display: inline-block; 
     vertical-align: middle; 
@@ -681,129 +599,4 @@
     border: none; 
     margin: 0 15px; 
     opacity: 0.8; 
-}
-
-/* === RESPONSIVIDADE AVANÇADA === */
-
-/* Telas muito pequenas (até 480px) */
-@media (max-width: 480px) {
-  .secao-hero__barra-topo {
-    justify-content: center;
-    padding: 15px 15px;
-  }
-  .secao-hero__titulo {
-    font-size: clamp(24px, 6vw, 32px); 
-  }
-  .secao-hero__subtitulo {
-    font-size: clamp(14px, 3.5vw, 18px); 
-  }
-}
-
-/* Telas médias (481px a 768px) */
-@media (min-width: 481px) and (max-width: 768px) {
-
-}
-
-/* Telas grandes (769px a 1024px) */
-@media (min-width: 769px) and (max-width: 1024px) {
-}
-
-/* Telas extra grandes (acima de 1200px) */
-@media (min-width: 1200px) {
-  .secao-hero__titulo {
-    font-size: clamp(36px, 4vw, 52px); 
-  }
-  .secao-hero__subtitulo {
-    font-size: clamp(18px, 2vw, 24px); 
-  }
-}
-
-/* Ajustes para zoom alto (quando o viewport fica muito pequeno) */
-@media (max-width: 320px) {
-  .secao-hero__logo {
-    width: 20%;
-    min-width: 150px;
-    height: auto;
-  }
-  .secao-hero__titulo {
-    font-size: clamp(20px, 7vw, 28px);
-    line-height: 1.1;
-  }
-  .secao-hero__subtitulo {
-    font-size: clamp(12px, 4vw, 16px);
-    line-height: 1.4;
-  }
-  .botao-cta {
-    width: clamp(180px, 80%, 280px);
-    font-size: clamp(14px, 3vw, 16px);
-    padding: 12px 30px;
-  }
-}
-
-/* Responsivo */
-@media (max-width: 768px) {
-    .secao-hero__logo {
-        width: 20%;
-        min-width: 200px;
-        height: auto;
-  }
-  .secao-sobre {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .secao-sobre__imagem-wrapper {
-    margin-top: 30px;
-    text-align: center;
-  }
-}
-
-
-/* Responsivo */
-@media (max-width: 768px) {
-  .secao-sobre {
-    flex-direction: column;
-    padding: 40px 5%;
-  }
-
-  .secao-sobre__imagem-wrapper {
-    position: static;
-    opacity: 0.6;
-    width: 100%;
-    margin-top: 20px;
-  }
-
-  .titulo-secao, .secao-sobre__lista {
-    text-align: center;
-  }
-}
-
-
-/* === LÓGICA RESPONSIVA DOS CARDS DO CARROSSEL === */
-
-
-/* Para telas com 1081px ou mais (mostra 3 cards) */
-@media (min-width: 1081px) {
-    .secao-imoveis .carousel-item,
-    .secao-beneficios .carousel-item {
-        
-        flex: 0 0 calc(33.333% - (var(--carousel-gap) * 2 / 3));
-    }
-}
-
-/* Para telas entre 769px e 1080.98px (mostra 2 cards) */
-@media (min-width: 769px) and (max-width: 1080.98px) {
-    .secao-imoveis .carousel-item,
-    .secao-beneficios .carousel-item {
-        
-        flex: 0 0 calc(50% - (var(--carousel-gap) / 2));
-    }
-}
-
-/* Para telas com menos de 769px (mostra 1 card) */
-@media (max-width: 768.98px) {
-    .secao-imoveis .carousel-item,
-    .secao-beneficios .carousel-item {
-        flex: 0 0 100%;
-    }
 }

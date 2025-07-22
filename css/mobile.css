@@ -26,3 +26,353 @@
         height: 200px; 
     }
 }
+
+
+/* === RESPONSIVIDADE PARA A SEÇÃO SOBRE === */
+
+@media (max-width: 992px) {
+    .secao-sobre.container {
+        padding: 40px 40px;
+    }
+
+    .secao-sobre h2.titulo-secao-sobre {
+        text-align: center;
+        font-size: 2.2em;
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 25px;
+    }
+
+    .secao-sobre-conteudo {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .secao-sobre-lista {
+    flex: 1 1 42%; 
+    max-width: 620px; /* Ajuste para o limite do texto */
+    list-style: disc;
+    padding-left: 20px;
+    color: #1f2937;
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: left;
+    gap: 20px;
+    }
+    
+    .secao-sobre-imagem-container {
+    flex: 0 0 42%; 
+    max-width: 580px; 
+    min-width: 300px;
+    text-align: right;
+    }
+}
+
+@media (max-width: 768px) {
+    .secao-sobre.container {
+        padding: 30px 25px;
+    }
+
+    .secao-sobre h2.titulo-secao-sobre {
+        font-size: 1.6em;
+        margin-bottom: 20px;
+    }
+
+    .secao-sobre-lista {
+        padding-left: 15px;
+        font-size: 0.95em;
+    }
+
+    .secao-sobre-imagem-container {
+        width: 90%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .secao-sobre.container {
+        padding: 20px 15px;
+    }
+    .secao-sobre h2.titulo-secao-sobre {
+        font-size: 1.4em;
+        margin-bottom: 15px
+    }
+    .secao-sobre-lista {
+        font-size: 0.9em;
+        padding-left: 10px;
+    }
+    .secao-sobre-imagem-container {
+        width: 95%;
+    }
+}
+
+/* === RESPONSIVIDADE PARA A SEÇÃO DE CONTATO === */
+@media (max-width: 992px) {
+    .cartao-contato__conteudo {
+        flex-direction: column; 
+        gap: 30px;
+        padding: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .formulario-linha {
+        flex-direction: column; 
+        gap: 15px;
+    }
+    .cartao-contato__conteudo {
+        padding: 20px;
+    }
+}
+
+/* === RESPONSIVIDADE === */
+
+/* Tablet (até 992px) */
+@media (max-width: 992px) {
+  .secao-sobre .container { flex-direction: column; }
+  .cartao-contato { flex-direction: column; }
+  .cartao-contato__mapa, .cartao-contato__formulario-wrapper { border-radius: 8px; }
+  .secao-sobre .titulo-secao { text-align: center; }
+}
+
+/* Mobile (até 768px) */
+@media (max-width: 768px) {
+  .container { padding: 40px 15px; }
+  .secao-hero { min-height: auto; padding: 60px 20px; }
+  .secao-hero__barra-topo {justify-content: center; align-content: center;} 
+  .cartao-beneficio, .cartao-imovel { min-width: 300px; }
+}
+
+/* === RESPONSIVIDADE AVANÇADA === */
+
+/* Telas muito pequenas (até 480px) */
+@media (max-width: 480px) {
+  .secao-hero__barra-topo {
+    justify-content: center;
+    align-content: center;
+    padding: 15px 15px;
+  }
+  .secao-hero__titulo {
+    font-size: clamp(24px, 6vw, 32px); 
+  }
+  .secao-hero__subtitulo {
+    font-size: clamp(14px, 3.5vw, 18px); 
+  }
+}
+
+/* Telas extra grandes (acima de 1200px) */
+@media (min-width: 1200px) {
+  .secao-hero__titulo {
+    font-size: clamp(36px, 4vw, 52px); 
+  }
+  .secao-hero__subtitulo {
+    font-size: clamp(18px, 2vw, 24px); 
+  }
+}
+
+/* Ajustes para zoom alto (quando o viewport fica muito pequeno) */
+@media (max-width: 320px) {
+  .secao-hero__barra-topo {
+    justify-content: center;
+    align-content: center;
+  }  
+  .secao-hero__logo {
+    width: 20%;
+    min-width: 150px;
+    height: auto;
+    justify-self: center;
+    align-self: center;
+  }
+  .secao-hero__titulo {
+    font-size: clamp(20px, 7vw, 28px);
+    line-height: 1.1;
+  }
+  .secao-hero__subtitulo {
+    font-size: clamp(12px, 4vw, 16px);
+    line-height: 1.4;
+  }
+  .botao-cta {
+    width: clamp(180px, 80%, 280px);
+    font-size: clamp(14px, 3vw, 16px);
+    padding: 12px 30px;
+  }
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .secao-hero__barra-topo {
+    justify-content: center;
+    align-content: center;
+  }
+
+  .secao-hero__logo {
+    width: 20%;
+    min-width: 200px;
+    height: auto;
+    align-self: center;
+    justify-self: center;
+  }
+
+  .secao-sobre {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .secao-sobre__imagem-wrapper {
+    margin-top: 30px;
+    text-align: center;
+  }
+}
+
+
+/* Responsivo */
+@media (max-width: 768px) {
+
+  .secao-hero__barra-topo {
+    justify-content: center;
+    align-content: center;
+  }
+
+  .secao-sobre {
+    flex-direction: column;
+    padding: 40px 5%;
+  }
+
+  .secao-sobre__imagem-wrapper {
+    position: static;
+    opacity: 0.6;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .titulo-secao, .secao-sobre__lista {
+    text-align: center;
+  }
+}
+
+
+/* === LÓGICA RESPONSIVA DOS CARDS DO CARROSSEL === */
+
+
+/* Para telas com 1081px ou mais (mostra 3 cards) */
+@media (min-width: 1081px) {
+    .secao-imoveis .carousel-item,
+    .secao-beneficios .carousel-item {
+        
+        flex: 0 0 calc(33.333% - (var(--carousel-gap) * 2 / 3));
+    }
+}
+
+/* Para telas entre 769px e 1080.98px (mostra 2 cards) */
+@media (min-width: 769px) and (max-width: 1080.98px) {
+    .secao-imoveis .carousel-item,
+    .secao-beneficios .carousel-item {
+        
+        flex: 0 0 calc(50% - (var(--carousel-gap) / 2));
+    }
+}
+
+/* Para telas com menos de 769px (mostra 1 card) */
+@media (max-width: 768.98px) {
+    .secao-imoveis .carousel-item,
+    .secao-beneficios .carousel-item {
+        flex: 0 0 100%;
+    }
+}
+
+/* Tablet, Mobile e Telas muito pequenas (até 992px) */
+@media (max-width: 992px) {
+  /* Padding da container */
+  .container {
+    padding: 30px 20px;
+  }
+
+  /* Títulos padronizados */
+  h1, h2, h3, h4, h5, h6,
+  .titulo-secao,
+  .secao-hero__titulo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 0.75rem;
+  }
+
+  /* Cartões de imóvel com altura fixa */
+  .cartao-imovel {
+    width: 80%;
+    height: flex;
+    border: none;
+    box-sizing: content-box;
+    border-radius: 12px;
+    box-shadow: var(--sombra-cartao);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  /* Cartões de benefício com tamanho fixo */
+.cartao-beneficio {
+  width: 90%;
+  max-width: 320px;
+  height: 350px;
+  padding: 20px; /* Adiciona espaço interno */
+  border: none;
+  box-sizing: border-box;
+  border-radius: 10px;
+  box-shadow: var(--sombra-cartao);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow-y: auto;
+
+}
+
+  /* Paginação com menor margem */
+  .paginacao {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+  }
+}
+
+/* Mobile (até 768px) */
+@media (max-width: 768px) {
+  .secao-hero__barra-topo {
+    justify-content: center;
+    align-content: center;
+  }
+
+  .container {
+    padding: 20px 15px;
+  }
+
+  h1, h2, h3, h4, h5, h6,
+  .titulo-secao,
+  .secao-hero__titulo {
+    font-size: 1.7rem;
+  }
+}
+
+/* Telas muito pequenas (até 480px) */
+@media (max-width: 480px) {
+
+  .secao-hero__barra-topo {
+    justify-content: center;
+    align-content: center;
+  } 
+
+  .container {
+    padding: 15px 10px;
+  }
+
+  h1, h2, h3, h4, h5, h6,
+  .titulo-secao,
+  .secao-hero__titulo {
+    font-size: 1.6rem;
+  }
+}
+
+
+

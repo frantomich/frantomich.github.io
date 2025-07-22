@@ -2,6 +2,29 @@
 
 // Espera o DOM estar completamente carregado antes de executar o script:
 document.addEventListener('DOMContentLoaded', () => {
+
+    // --------- LÓGICA PARA DESABILITAR O LOADER ---------
+
+    // Tempo mínimo para o loader ser exibido (em milissegundos):
+    const minimumLoadTime = 1000;
+
+    // Seleciona os elementos necessários para desabilitar o loader
+    const loader = document.getElementById('loader');
+    const body = document.body;
+
+    // Esconde o loader
+    this.setTimeout(() => loader.classList.add('hidden'), minimumLoadTime);
+    
+    // Remove o loader do fluxo do documento após a animação detransição:
+    loader.addEventListener('transitionend', () => {
+        loader.style.display = 'none';
+    });
+
+    // Reabilita a rolagem removendo a classe do body:
+    body.classList.remove('loading');
+
+    // --------- LÓGICA DO CARROSSEL ---------
+
     // Seleciona TODOS os wrappers de carrossel da página:
     const allCarouselWrappers = document.querySelectorAll('.carousel-wrapper');
 
@@ -44,7 +67,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-
         // Função para criar os indicadores (bolinhas)
         function createIndicators() {
             if (!indicatorsContainer) return;
@@ -62,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
         function updateIndicators() {
             if (!indicatorsContainer) return;
             const indicators = indicatorsContainer.querySelectorAll('.carousel-indicator');
-            const currentPage = Math.floor(currentIndex / itemsPerView);
+            const currentPage = Math.ceil(currentIndex / itemsPerView);
             indicators.forEach((indicator, idx) => {
                 indicator.classList.toggle('carousel-indicator-active', idx === currentPage);
             });
@@ -83,8 +105,6 @@ document.addEventListener('DOMContentLoaded', () => {
             updateIndicators();
         }
 
-        // --- EVENT LISTENERS ---
-
         if (prevBtn && nextBtn) {
             prevBtn.addEventListener('click', () => {
                 if (currentIndex == 0) {
@@ -93,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             nextBtn.addEventListener('click', () => {
-                if (currentIndex == itemsPerView * Math.ceil(totalItems / itemsPerView) - itemsPerView) {
+                if (currentIndex == totalItems - itemsPerView) {
                     moveToIndex(0);
                 } else moveToIndex(currentIndex + itemsPerView);
             });
@@ -185,7 +205,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- LÓGICA DOS IMOVÉIS CLICAVEIS ---
+    // --------- LÓGICA DOS IMOVÉIS CLICAVEIS ---------
+
     const cards = document.querySelectorAll(".cartao-imovel");
     const link = "https://www.google.com/maps/place/Instituto+de+Ci%C3%AAncias+Exatas+e+Aplicadas+-+ICEA%2FUFOP/@-19.8361918,-43.1702806,17z/data=!3m1!4b1!4m6!3m5!1s0xa507511efdbbd3:0x55a7ef3c198b9753!8m2!3d-19.8361918!4d-43.1677057!16s%2Fg%2F1tf172_b?entry=ttu&g_ep=EgoyMDI1MDcwOC4wIKXMDSoASAFQAw%3D%3D";
 
@@ -196,7 +217,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- LÓGICA DO FORMULÁRIO DE CONTATO  ---
+    // --------- LÓGICA DO FORMULÁRIO DE CONTATO  ---------
+
     emailjs.init('nRFCdVlUADZocJb5U');
 
     const contactForm = document.getElementById('contact-form');
@@ -223,7 +245,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- LÓGICA PARA PREVENIR O MENU DE CONTEXTO ---
+    // --------- LÓGICA PARA PREVENIR O MENU DE CONTEXTO ---------
+
     document.addEventListener('contextmenu', (event) => {
             event.preventDefault();
     });

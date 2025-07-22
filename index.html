@@ -7,16 +7,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lar Doce Click - Encontre o Imóvel dos Seus Sonhos</title>
     <link rel="icon" href="assets/icons/favicon.svg" type="image/svg">
-    <link rel="stylesheet" href="./css/styleguide.css">
     <link rel="stylesheet" href="./css/globals.css">
+    <link rel="stylesheet" href="./css/base.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/mobile.css">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script src="scripts/control.js" defer></script>
-    <!--<script src="scripts/imoveis.js" defer></script>-->
 </head>
 
-<body>
+<body class="loading">
+
+    <!-------------------------------Loader------------------------------->
+
+    <div id="loader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-----------------------------Seção Hero----------------------------->
+
     <header class="container secao-hero">
         <div class="secao-hero__barra-topo">
             <a href="https://www.visaojr.com.br/" target="_blank">
@@ -33,9 +39,7 @@
 
     <main>
 
-
         <!-----------------------Seção de Benefícios----------------------->
-
 
         <section id="beneficios" class="container secao-beneficios">
 
@@ -167,7 +171,6 @@
         <section id="imoveis" class="container secao-imoveis">
 
             <h2 class="titulo-secao">Nossos Imóveis em Destaque:</h2>
-
 
             <div class="carousel-wrapper" >
                 <div class="botao carousel-prev" id="carousel-prev" name="carousel-prev">
@@ -365,7 +368,6 @@
 
 
         <!-----------------------Seção Sobre----------------------->
-
         
         <section id="sobre" class="container secao-sobre">
             <h2 class="titulo-secao-sobre">Seu Lar, Nossa Missão!</h2>
@@ -396,7 +398,7 @@
 
         <section id="depoimentos" class="container secao-depoimentos">
             
-            <h2 class="titulo-secao">O que Dizem Aqueles que Confiam em Nós:</h2>
+            <h2 class="titulo-secao">O que Dizem Aqueles que Confiam:</h2>
 
             <div class="carousel-wrapper" data-items-per-view="1">
                 <div class="botao carousel-prev" id="carousel-prev" name="carousel-prev">
@@ -579,6 +581,9 @@
         <p class="rodape__frase-adicional">Feito com <img src="assets/icons/image.png" alt="Coração" class="icon-heart"> para facilitar sua busca pelo lar dos seus sonhos.</p>
     </footer>
 
-    
 </body>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="scripts/control.js" defer></script>
+
 </html>

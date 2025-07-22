@@ -1,9 +1,9 @@
-/* ARQUIVO: styleguide.css
+/* ARQUIVO: base.css
  * Contém a identidade visual do projeto: variáveis, utilitários e componentes base.
  */
-
+ 
 /* === IMPORTAÇÕES DE FONTES === */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");                                      
 
 /* === VARIÁVEIS GLOBAIS (ROOT) === */
 :root {
@@ -11,7 +11,7 @@
   --cor-fundo: #E7ECEF;
   --cor-fundo-cards: #F0F2F5;
   
-  --cor-primaria-clara: #434a97;
+  --cor-primaria-clara: #363d7d;
   --gradiente-primario: linear-gradient(90deg, #4C58E6 0%, #2534E3 100%);
   --cor-texto-claro: #F0F2F5;
   --cor-texto-escuro: #1e1e1e;
@@ -40,7 +40,6 @@
 /* === CLASSES DE UTILIDADE === */
 .container {
   width: 100%;
-  max-width: 1366px;
   padding-top: 2rem;
   padding-bottom: 2rem;
   padding-left: 0rem;
@@ -190,10 +189,4 @@
   flex-basis: 100%; 
   width: 100%;      
   flex-shrink: 0;   
-}
-
-/* Media queries para responsividade do carrossel*/
-/* As regras de largura foram removidas daqui para serem controladas pelo JS */
-@media (max-width: 992px) {
-  
 }
