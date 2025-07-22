@@ -1,6 +1,6 @@
 /*Folha de estilos para dispositivos móveis*/
 
-@media (max-width: 768px) {
+@media (max-width: 700px) {
     
     /* Esconde as setas de navegação que não são necessárias no mobile */
     .carousel-prev, 
@@ -261,7 +261,7 @@
 
 
 /* Para telas com 1081px ou mais (mostra 3 cards) */
-@media (min-width: 1081px) {
+@media (min-width: 1080px) {
     .secao-imoveis .carousel-item,
     .secao-beneficios .carousel-item {
         
@@ -270,7 +270,7 @@
 }
 
 /* Para telas entre 769px e 1080.98px (mostra 2 cards) */
-@media (min-width: 769px) and (max-width: 1080.98px) {
+@media (min-width: 800px) and (max-width: 1080px) {
     .secao-imoveis .carousel-item,
     .secao-beneficios .carousel-item {
         
@@ -279,7 +279,7 @@
 }
 
 /* Para telas com menos de 769px (mostra 1 card) */
-@media (max-width: 768.98px) {
+@media (max-width: 800px) {
     .secao-imoveis .carousel-item,
     .secao-beneficios .carousel-item {
         flex: 0 0 100%;
@@ -304,7 +304,8 @@
 
   /* Cartões de imóvel com altura fixa */
   .cartao-imovel {
-    width: 80%;
+    width: 100%;
+    max-width: 320px;
     height: flex;
     border: none;
     box-sizing: content-box;
@@ -315,16 +316,15 @@
 
   /* Cartões de benefício com tamanho fixo */
 .cartao-beneficio {
-  width: 90%;
+  width: 100%;
   max-width: 320px;
-  height: 350px;
+  height: flex;
   padding: 20px; /* Adiciona espaço interno */
   border: none;
   box-sizing: border-box;
   border-radius: 10px;
   box-shadow: var(--sombra-cartao);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  overflow-y: auto;
 
 }
 
